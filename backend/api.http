@@ -1,0 +1,163 @@
+POST http://localhost:3000/users/register
+Content-Type: application/json
+
+{
+    "name": "meera",
+    "username": "meera",
+    "email": "meera@gmail.com",
+    "password": "456"
+}
+###
+POST http://localhost:3000/users/createProfile
+Content-Type: application/json
+{
+    {
+  "userId": "6a74c0ba9f230cf91a10846d.",
+  "bio": "Computer Science student passionate about software development, problem solving, and building real-world applications.",
+  "currPost": "Software Engineer Intern at Microsoft"
+ 
+}
+}
+
+###
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    
+     "email": "tara@gmail.com",
+    "password": "123"
+}
+###
+
+POST http://localhost:3000/users/updateProfilePicture
+
+Content-Type:application/json
+
+{
+    "token":"0f81cd1185352243e5981ee063cb29148bc9ab351173ce10361738fe9cd3212e",
+    "profilePicture":"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fHww"
+}
+
+###
+POST http://localhost:3000/users/updateUserInfo
+Content-Type : application/json
+
+{
+    "token":"a22349784eccb3cf66c992c045efe29ee0a3c18e7f90ead80cff4ca358a122fa",
+    "username":"tara"
+}
+###
+GET http://localhost:3000/users/getUserAndProfile
+Content-Type : application/json
+
+{
+    "token":"a22349784eccb3cf66c992c045efe29ee0a3c18e7f90ead80cff4ca358a122fa"
+    
+}
+###
+POST http://localhost:3000/users/updateProfileData
+Content-Type : application/json
+
+{
+    "token":"30696fe473f16edeaf8987afc277bb73d963cce101e17c2fa7b516d8dfeb8d0f",
+    "currentPost":"SDE2",
+    "pastWork":["testing","developing"],
+    "bio":"hardworking and aspiring",
+      "pastWork": [
+        "Testing",
+        "Development",
+        "Backend"
+    ]
+    
+}
+###
+
+GET  http://localhost:3000/users/getPDF?userId=6a5d0a48f5b57c0577a803c7
+Content-Type : application/json
+
+{
+   
+    
+}
+###
+POST  http://localhost:3000/users/sendConnectionRequest
+Content-Type : application/json
+
+{
+    "token":"a22349784eccb3cf66c992c045efe29ee0a3c18e7f90ead80cff4ca358a122fa",
+    "connectionId":"6a5d0a48f5b57c0577a803c7"
+   
+    
+}
+
+###
+GET http://localhost:3000/users/getConnectionsSent/30696fe473f16edeaf8987afc277bb73d963cce101e17c2fa7b516d8dfeb8d0f
+Content-Type : application/json
+
+{
+    
+   
+    
+}
+###
+GET http://localhost:3000/users/getConnectionsReceived/a22349784eccb3cf66c992c045efe29ee0a3c18e7f90ead80cff4ca358a122fa
+Content-Type : application/json
+
+{
+    
+   
+    
+}
+###
+POST  http://localhost:3000/users/acceptConnectionRequest
+Content-Type : application/json
+
+{
+    "token":"a22349784eccb3cf66c992c045efe29ee0a3c18e7f90ead80cff4ca358a122fa",
+    "requestId":"6a5d0a48f5b57c0577a803c7",
+    "status":"accept"
+   
+    
+}
+
+###
+GET http://localhost:3000/posts/allPosts
+Content-Type: application/json
+
+{
+
+}
+
+###
+POST http://localhost:3000/posts/deletePost
+Content-Type: application/json
+
+{
+    "token":"a22349784eccb3cf66c992c045efe29ee0a3c18e7f90ead80cff4ca358a122fa",
+    "postId":"6a5f80584e633be7960e99b2"
+
+}
+###
+POST http://localhost:3000/posts/commentPost
+Content-Type: application/json
+
+{
+    "token":"a22349784eccb3cf66c992c045efe29ee0a3c18e7f90ead80cff4ca358a122fa",
+    "postId":"6a60f0d1ce16fc6003e615f0",
+    "commentBody":"congrats"
+
+}
+
+###
+POST http://localhost:3000/posts/deleteComment
+Content-Type: application/json
+
+{
+    "token":"a22349784eccb3cf66c992c045efe29ee0a3c18e7f90ead80cff4ca358a122fa",
+    "commentId":"6a60ed28212fb82520ed525d"
+  
+
+}
+
+

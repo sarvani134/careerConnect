@@ -1,0 +1,985 @@
+/* =========================================================
+   PROFILE PAGE
+========================================================= */
+
+.profile-page {
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    color: #1d2226;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.profile-loading {
+    min-height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 16px;
+    color: #666;
+}
+
+
+/* =========================================================
+   PROFILE HEADER
+========================================================= */
+
+.profile-header {
+    background: #fff;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    margin-bottom: 16px;
+}
+
+
+/* Cover */
+
+.cover-photo {
+    height: 180px;
+
+    background: #d9eaf7;
+}
+
+
+/* Header content */
+
+.profile-header-content {
+    position: relative;
+
+    padding: 0 30px 25px;
+}
+
+
+/* Avatar */
+
+.profile-avatar {
+    width: 130px;
+    height: 130px;
+
+    margin-top: -65px;
+
+    border-radius: 50%;
+
+    border: 5px solid white;
+
+    background: #0a66c2;
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 45px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* Main info */
+
+.profile-main-info {
+    margin-top: 15px;
+}
+
+
+.profile-main-info h1 {
+    margin: 0 0 6px;
+
+    font-size: 28px;
+    font-weight: 600;
+}
+
+
+.current-position {
+    margin: 0 0 8px;
+
+    font-size: 16px;
+    color: #333;
+}
+
+
+.profile-location {
+    margin: 0;
+
+    font-size: 14px;
+    color: #666;
+}
+
+
+.profile-location span {
+    color: #0a66c2;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.profile-actions {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+
+.primary-btn,
+.secondary-btn,
+.cancel-btn,
+.save-btn,
+.add-section-btn {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+/* Primary */
+
+.primary-btn {
+    padding: 10px 20px;
+
+    border: none;
+    border-radius: 20px;
+
+    background: #0a66c2;
+    color: white;
+}
+
+
+.primary-btn:hover {
+    background: #004182;
+}
+
+
+/* Secondary */
+
+.secondary-btn {
+    padding: 10px 20px;
+
+    border: 1px solid #0a66c2;
+    border-radius: 20px;
+
+    background: white;
+    color: #0a66c2;
+}
+
+
+.secondary-btn:hover {
+    background: #e8f3ff;
+}
+
+
+/* =========================================================
+   PROFILE CARDS
+========================================================= */
+
+.profile-card {
+    width: 100%;
+    box-sizing: border-box;
+
+    background: white;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    padding: 25px 30px;
+
+    margin-bottom: 16px;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.section-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+
+.section-header h2 {
+    margin: 0;
+
+    font-size: 22px;
+    font-weight: 600;
+}
+
+
+/* Edit icon */
+
+.edit-btn,
+.add-btn {
+    border: none;
+    background: transparent;
+
+    font-size: 21px;
+
+    color: #444;
+
+    cursor: pointer;
+
+    padding: 5px;
+}
+
+
+.edit-btn:hover,
+.add-btn:hover {
+    color: #0a66c2;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-text {
+    margin: 0;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    white-space: pre-wrap;
+}
+
+
+.empty-text {
+    margin: 0;
+
+    color: #666;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   CURRENT POSITION
+========================================================= */
+
+.current-job {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.company-logo,
+.school-logo {
+    width: 55px;
+    height: 55px;
+
+    flex-shrink: 0;
+
+    background: #eef3f8;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #0a66c2;
+
+    font-size: 23px;
+    font-weight: 600;
+}
+
+
+.current-job h3 {
+    margin: 0 0 5px;
+
+    font-size: 17px;
+}
+
+
+.current-job p {
+    margin: 0;
+
+    color: #666;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+
+.experience-list {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.experience-item {
+    display: flex;
+
+    gap: 15px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #ddd;
+}
+
+
+.experience-item:first-child {
+    padding-top: 0;
+}
+
+
+.experience-item:last-child {
+    padding-bottom: 0;
+
+    border-bottom: none;
+}
+
+
+.experience-info {
+    min-width: 0;
+}
+
+
+.experience-info h3 {
+    margin: 0 0 5px;
+
+    font-size: 17px;
+}
+
+
+.company-name {
+    margin: 0 0 4px;
+
+    font-size: 15px;
+}
+
+
+.years {
+    margin: 0;
+
+    color: #666;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   EDUCATION
+========================================================= */
+
+.education-list {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.education-item {
+    display: flex;
+
+    gap: 15px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #ddd;
+}
+
+
+.education-item:first-child {
+    padding-top: 0;
+}
+
+
+.education-item:last-child {
+    padding-bottom: 0;
+
+    border-bottom: none;
+}
+
+
+.education-info {
+    min-width: 0;
+}
+
+
+.education-info h3 {
+    margin: 0 0 7px;
+
+    font-size: 17px;
+}
+
+
+.education-info p {
+    margin: 4px 0;
+
+    font-size: 15px;
+}
+
+
+.education-info .field {
+    color: #666;
+}
+
+
+/* =========================================================
+   EMPTY SECTIONS
+========================================================= */
+
+.empty-section {
+    text-align: center;
+
+    padding: 20px 10px 10px;
+}
+
+
+.empty-icon {
+    font-size: 35px;
+
+    margin-bottom: 10px;
+}
+
+
+.empty-section h3 {
+    margin: 0 0 8px;
+
+    font-size: 17px;
+}
+
+
+.empty-section p {
+    max-width: 500px;
+
+    margin: 0 auto 18px;
+
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+.add-section-btn {
+    padding: 9px 18px;
+
+    border: 1px solid #0a66c2;
+
+    border-radius: 20px;
+
+    background: white;
+
+    color: #0a66c2;
+}
+
+
+.add-section-btn:hover {
+    background: #e8f3ff;
+}
+
+
+/* =========================================================
+   EDIT PROFILE
+========================================================= */
+
+.edit-profile {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 30px;
+
+    display: block;
+}
+
+
+/* Edit header */
+
+.edit-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding-bottom: 20px;
+
+    margin-bottom: 5px;
+
+    border-bottom: 1px solid #ddd;
+}
+
+
+.edit-header h2 {
+    margin: 0;
+
+    font-size: 24px;
+}
+
+
+.close-edit-btn {
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    color: #555;
+
+    cursor: pointer;
+}
+
+
+.close-edit-btn:hover {
+    color: #000;
+}
+
+
+/* =========================================================
+   FORM SECTION
+========================================================= */
+
+.form-section {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 25px 0;
+
+    border-bottom: 1px solid #ddd;
+}
+
+
+.form-section:last-of-type {
+    border-bottom: none;
+}
+
+
+.form-section-title {
+    margin: 0 0 20px;
+
+    font-size: 19px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   FORM GROUP
+========================================================= */
+
+.form-group {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    margin-bottom: 18px;
+}
+
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Labels */
+
+.form-group label {
+    display: block;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    margin-bottom: 7px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #333;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.form-group input,
+.form-group textarea {
+    display: block;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 12px 14px;
+
+    margin: 0;
+
+    border: 1px solid #777;
+
+    border-radius: 6px;
+
+    background: white;
+
+    color: #1d2226;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    line-height: 1.4;
+
+    outline: none;
+}
+
+
+/* Textarea */
+
+.form-group textarea {
+    min-height: 130px;
+
+    resize: vertical;
+}
+
+
+/* Focus */
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border: 2px solid #0a66c2;
+
+    padding: 11px 13px;
+}
+
+
+/* Placeholder */
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #888;
+}
+
+
+/* =========================================================
+   EDIT ACTIONS
+========================================================= */
+
+.edit-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding-top: 25px;
+}
+
+
+/* Cancel */
+
+.cancel-btn {
+    padding: 10px 22px;
+
+    border: 1px solid #666;
+
+    border-radius: 20px;
+
+    background: white;
+
+    color: #333;
+}
+
+
+.cancel-btn:hover {
+    background: #f3f3f3;
+}
+
+
+/* Save */
+
+.save-btn {
+    padding: 10px 25px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: #0a66c2;
+
+    color: white;
+}
+
+
+.save-btn:hover {
+    background: #004182;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .profile-page {
+        margin: 15px auto;
+
+        padding: 0 10px;
+    }
+
+
+    .cover-photo {
+        height: 140px;
+    }
+
+
+    .profile-header-content {
+        padding: 0 20px 20px;
+    }
+
+
+    .profile-avatar {
+        width: 100px;
+        height: 100px;
+
+        margin-top: -50px;
+
+        font-size: 35px;
+    }
+
+
+    .profile-main-info h1 {
+        font-size: 24px;
+    }
+
+
+    .profile-card {
+        padding: 20px;
+    }
+
+
+    .edit-profile {
+        padding: 20px;
+    }
+
+
+    .edit-header h2 {
+        font-size: 21px;
+    }
+
+
+    .profile-actions {
+        flex-wrap: wrap;
+    }
+
+
+    .experience-item,
+    .education-item {
+        align-items: flex-start;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .profile-page {
+        padding: 0 5px;
+    }
+
+
+    .cover-photo {
+        height: 110px;
+    }
+
+
+    .profile-header-content {
+        padding: 0 15px 20px;
+    }
+
+
+    .profile-avatar {
+        width: 85px;
+        height: 85px;
+
+        margin-top: -42px;
+
+        font-size: 30px;
+    }
+
+
+    .profile-card {
+        padding: 18px;
+    }
+
+
+    .edit-profile {
+        padding: 18px;
+    }
+
+
+    .profile-actions {
+        flex-direction: column;
+    }
+
+
+    .profile-actions button {
+        width: fit-content;
+    }
+
+
+    .edit-actions {
+        flex-direction: column-reverse;
+
+        align-items: stretch;
+    }
+
+
+    .edit-actions button {
+        width: 100%;
+    }
+
+}
+.create-post-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 10px 20px;
+
+    background: white;
+    color: #1f1f1f;
+
+    border: 1px solid #d0d5da;
+    border-radius: 10px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+    transition: all 0.2s ease;
+}
+
+.create-post-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 26px;
+    height: 26px;
+
+    background: #0a66c2;
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+    line-height: 1;
+}
+
+.create-post-button:hover {
+    background: #f3f6f8;
+    border-color: #0a66c2;
+}
+
+.create-post-button:active {
+    transform: scale(0.98);
+}
+.profile-header {
+    position: relative;
+}
+
+/* Create Post button inside the cover photo */
+.profile-header .create-post-button {
+    position: absolute;
+
+    top: 20px;
+    right: 25px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 9px 16px;
+
+    background: white;
+    color: #1f1f1f;
+
+    border: 1px solid #d0d5da;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+
+    z-index: 10;
+
+    transition: 0.2s ease;
+}
+
+.profile-header .create-post-button:hover {
+    background: #f5f5f5;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.16);
+}
+
+/* Blue + circle */
+.profile-header .create-post-icon {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #0a66c2;
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 19px;
+    line-height: 1;
+}

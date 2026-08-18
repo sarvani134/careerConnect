@@ -1,0 +1,266 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f3f4f6;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ===============================
+   3 COLUMN PAGE
+================================ */
+
+.connection-page {
+    width: 95%;
+    max-width: 1500px;
+
+    margin: 30px auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    align-items: start;
+}
+
+
+/* ===============================
+   INDIVIDUAL COLUMN
+================================ */
+
+.connection-column {
+    background: white;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    min-height: 500px;
+
+    overflow: hidden;
+}
+
+
+/* ===============================
+   HEADER
+================================ */
+
+.column-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 20px;
+
+    border-bottom: 1px solid #eee;
+}
+
+.column-header h2 {
+    margin: 0;
+
+    font-size: 18px;
+
+    color: #222;
+}
+
+.column-header span {
+    background: #eef3f8;
+    color: #0a66c2;
+
+    padding: 4px 9px;
+
+    border-radius: 15px;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* ===============================
+   SEARCH
+================================ */
+
+.connection-search {
+    width: calc(100% - 30px);
+
+    margin: 15px;
+
+    padding: 10px 14px;
+
+    border: 1px solid #ccc;
+    border-radius: 20px;
+
+    outline: none;
+}
+
+.connection-search:focus {
+    border-color: #0a66c2;
+}
+
+
+/* ===============================
+   CONNECTION CARD
+================================ */
+
+.connection-card {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    padding: 18px;
+
+    border-bottom: 1px solid #eee;
+
+    transition: background 0.2s;
+}
+
+.connection-card:hover {
+    background: #fafafa;
+}
+
+
+/* ===============================
+   AVATAR
+================================ */
+
+.connection-avatar {
+    width: 48px;
+    height: 48px;
+
+    min-width: 48px;
+
+    border-radius: 50%;
+
+    background: #e5e7eb;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    color: #444;
+}
+
+
+/* ===============================
+   USER INFORMATION
+================================ */
+
+.connection-info {
+    flex: 1;
+}
+
+.connection-info h3 {
+    margin: 0 0 5px;
+
+    font-size: 15px;
+
+    color: #222;
+}
+
+.connection-info p {
+    margin: 0 0 12px;
+
+    font-size: 13px;
+
+    color: #777;
+}
+
+
+/* ===============================
+   BUTTONS
+================================ */
+
+.message-btn,
+.accept-btn,
+.ignore-btn,
+.withdraw-btn {
+    padding: 7px 14px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* Message */
+
+.message-btn {
+    background: white;
+
+    border: 1px solid #0a66c2;
+
+    color: #0a66c2;
+}
+
+
+/* Accept */
+
+.accept-btn {
+    background: #0a66c2;
+
+    border: 1px solid #0a66c2;
+
+    color: white;
+}
+
+
+/* Ignore */
+
+.ignore-btn {
+    background: white;
+
+    border: 1px solid #aaa;
+
+    color: #555;
+}
+
+
+/* Withdraw */
+
+.withdraw-btn {
+    background: white;
+
+    border: 1px solid #aaa;
+
+    color: #555;
+}
+
+
+.request-actions {
+    display: flex;
+
+    gap: 8px;
+}
+
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1050px) {
+
+    .connection-page {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .connection-page {
+        grid-template-columns: 1fr;
+    }
+}

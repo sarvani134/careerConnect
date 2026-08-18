@@ -1,0 +1,557 @@
+/* =========================
+   FEED
+========================= */
+
+.feed {
+    width: 100%;
+    max-width: 650px;
+    margin: 30px auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   POST CARD
+========================= */
+
+.post {
+    background: #ffffff;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    overflow: visible;
+}
+
+
+/* =========================
+   POST HEADER
+========================= */
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 14px 16px 10px;
+}
+
+
+/* =========================
+   USER
+========================= */
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #ddd;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info h4 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+}
+
+.user-info p {
+    margin: 2px 0;
+    font-size: 13px;
+    color: #666;
+}
+
+.user-info span {
+    font-size: 12px;
+    color: #888;
+}
+
+
+/* =========================
+   POST MENU
+========================= */
+
+.post-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+
+/* =========================
+   THREE DOT BUTTON
+========================= */
+
+.more {
+    width: 34px;
+    height: 34px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+
+    font-size: 23px;
+    line-height: 1;
+
+    color: #555;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.more:hover {
+    background: #f2f2f2;
+}
+
+
+/* =========================
+   LINKEDIN STYLE CONNECT
+========================= */
+
+.connect-button {
+    min-width: 92px;
+
+    padding: 6px 16px;
+
+    border: 1.5px solid #0a66c2;
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    color: #0a66c2;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.1s ease;
+}
+
+
+/* Hover */
+
+.connect-button:hover {
+    background: #e8f3ff;
+
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Click */
+
+.connect-button:active {
+    transform: scale(0.97);
+}
+
+
+/* Disabled / Request Sent */
+
+.connect-button.request-sent {
+    border-color: #777;
+    color: #555;
+    background: #f5f5f5;
+    cursor: default;
+    box-shadow: none;
+}
+
+.connect-button.request-sent:hover {
+    background: #f5f5f5;
+}
+
+
+/* =========================
+   MENU OPTIONS
+========================= */
+
+.post-menu-options {
+    position: absolute;
+
+    top: 38px;
+    right: 0;
+
+    width: 110px;
+
+    background: #ffffff;
+
+    border: 1px solid #ddd;
+    border-radius: 7px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    z-index: 100;
+    overflow: hidden;
+}
+
+.post-menu-options button {
+    width: 100%;
+
+    padding: 10px 13px;
+
+    border: none;
+    background: #ffffff;
+
+    text-align: left;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.post-menu-options button:hover {
+    background: #f3f3f3;
+}
+
+
+/* =========================
+   POST BODY
+========================= */
+
+.post-body {
+    padding: 5px 16px 14px;
+
+    font-size: 15px;
+    line-height: 1.5;
+
+    color: #222;
+
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+
+/* =========================
+   POST IMAGE
+========================= */
+
+.post-image {
+    display: block;
+
+    width: 100%;
+    max-height: 600px;
+
+    object-fit: cover;
+
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+
+/* =========================
+   POST FOOTER
+========================= */
+
+.post-footer {
+    display: flex;
+
+    align-items: center;
+
+    border-top: 1px solid #eee;
+
+    padding: 4px 8px;
+}
+
+.post-footer button {
+    flex: 1;
+
+    padding: 10px 5px;
+
+    border: none;
+    background: transparent;
+
+    color: #555;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    border-radius: 5px;
+
+    transition: background 0.2s ease;
+}
+
+.post-footer button:hover {
+    background: #f2f2f2;
+}
+
+.post-footer button.liked {
+    color: #1877f2;
+    font-weight: 700;
+}
+
+/* =========================
+   EDIT BOX
+========================= */
+
+.edit-box {
+    padding: 5px 16px 15px;
+}
+
+.edit-box textarea {
+    width: 100%;
+
+    min-height: 120px;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    resize: vertical;
+
+    border: 1px solid #aaa;
+    border-radius: 6px;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    outline: none;
+}
+
+.edit-box textarea:focus {
+    border-color: #0a66c2;
+    box-shadow: 0 0 0 1px #0a66c2;
+}
+
+
+/* =========================
+   EDIT BUTTONS
+========================= */
+
+.edit-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    margin-top: 10px;
+}
+
+.edit-actions button {
+    padding: 7px 15px;
+
+    border-radius: 18px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+
+/* Save */
+
+.save-button {
+    border: none;
+
+    background: #0a66c2;
+
+    color: white;
+
+    font-weight: 600;
+}
+
+.save-button:hover {
+    background: #004182;
+}
+
+
+/* Cancel */
+
+.cancel-button {
+    border: 1px solid #777;
+
+    background: white;
+
+    color: #555;
+}
+
+.cancel-button:hover {
+    background: #f3f3f3;
+}
+
+
+/* =========================
+   LOADING
+========================= */
+
+.loading {
+    min-height: 300px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 16px;
+
+    color: #666;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .feed {
+        margin: 15px auto;
+        padding: 0 8px;
+    }
+
+    .post {
+        border-radius: 6px;
+    }
+
+    .post-header {
+        padding: 12px;
+    }
+
+    .avatar {
+        width: 43px;
+        height: 43px;
+    }
+
+    .user-info h4 {
+        font-size: 14px;
+    }
+
+    .user-info p {
+        font-size: 12px;
+    }
+
+    .user-info span {
+        font-size: 11px;
+    }
+
+    .connect-button {
+        min-width: 80px;
+        padding: 5px 13px;
+        font-size: 13px;
+    }
+
+    .post-body {
+        padding: 5px 12px 12px;
+        font-size: 14px;
+    }
+
+    .post-footer button {
+        font-size: 13px;
+        padding: 9px 3px;
+    }
+}
+
+/* =========================
+   COMMENTS
+========================= */
+
+.comments-section {
+    border-top: 1px solid #e5e7eb;
+    margin-top: 8px;
+    padding: 12px 16px;
+}
+
+.comments-section form {
+    display: flex;
+    gap: 8px;
+}
+
+.comments-section input {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid #c9d1d9;
+    border-radius: 18px;
+    padding: 8px 12px;
+    font: inherit;
+}
+
+.comments-section form button {
+    border: 0;
+    border-radius: 18px;
+    background: #0a66c2;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 8px 14px;
+}
+
+.comments-section form button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.comment {
+    background: #f3f6f8;
+    border-radius: 8px;
+    margin-top: 8px;
+    padding: 8px 12px;
+}
+
+.comment p,
+.comments-section > p {
+    margin: 0;
+}
+.comments-section {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid #eee;
+}
+
+/* Each comment */
+.comment {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+/* Small profile circle */
+.comment-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Username + comment */
+.comment-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+/* Username */
+.comment-username {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Actual comment */
+.comment-body {
+    margin: 0;
+    font-size: 13px;
+    color: #444;
+    line-height: 1.4;
+}
