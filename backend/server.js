@@ -29,4 +29,5 @@ mongoose.connect(process.env.CONNECTION_STRING)
 })
 app.use("/posts",postRouter)
 app.listen(3000,()=>{
+    console.log("connected to port 3000")
 })
