@@ -6,6 +6,7 @@ import { getAllComments } from "../actions/postAction";
 import { toggleLikeOptimistic } from "../actions/postAction/postIndex";
 import "../public/AllPosts.css";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 
 function AllPosts() {
@@ -90,6 +91,11 @@ function AllPosts() {
     // Delete post
     async function handleDelete(post) {
         try {
+            const confirmed = window.confirm(
+  "Are you sure you want to delete this post?"
+);
+
+if (!confirmed) return;
             const token = localStorage.getItem("token");
 
             const response = await axios.post(
@@ -103,11 +109,15 @@ function AllPosts() {
             setOpenMenuId(null);
 
             dispatch(getAllPosts());
+            toast.success("Post deleted successfully!");
 
         } catch (err) {
             console.log(
                 "Delete error:",
                 err.response?.data || err.message
+            );
+            toast.error(
+                err.response?.data?.msg || "Could not delete post. Please try again."
             );
         }
     }
@@ -137,11 +147,15 @@ function AllPosts() {
             setEditBody("");
 
             dispatch(getAllPosts());
+            toast.success("Post updated successfully!");
 
         } catch (err) {
             console.log(
                 "Edit error:",
                 err.response?.data || err.message
+            );
+            toast.error(
+                err.response?.data?.msg || "Could not update post. Please try again."
             );
         }
     }

@@ -141,6 +141,53 @@
     color: #777;
 }
 
+.image-preview {
+    position: relative;
+    margin: 0 25px 12px;
+    max-height: 250px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #f8fafc;
+}
+
+.image-preview img {
+    display: block;
+    width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+}
+
+.image-preview-actions {
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+}
+
+.replace-image-button,
+.remove-image-button {
+    border: none;
+    border-radius: 6px;
+    padding: 7px 10px;
+    background: rgba(17, 24, 39, 0.85);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.remove-image-button {
+    background: rgba(185, 28, 28, 0.92);
+}
+
+.replace-image-button:hover,
+.remove-image-button:hover {
+    filter: brightness(1.1);
+}
+
 
 /* ================= TOOLS ================= */
 

@@ -302,7 +302,7 @@ function Profile() {
                     <button
     type="button"
     className="create-post-button"
-    onClick={() => navigate("/users/createPost")}
+    onClick={() => navigate("/posts/createPost")}
 >
     <span className="create-post-icon">＋</span>
     <span>Create Post</span>
