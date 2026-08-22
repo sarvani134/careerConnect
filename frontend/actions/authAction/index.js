@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { getConnectionsAccepted, getConnectionsReceived, getConnectionsSent, getUserById, loginUser, logoutUser, registerUser } from "../postAction"
+import { addMessage, getConnectionsAccepted, getConnectionsReceived, getConnectionsSent, getCurrentUserId, getMessages, loginUser, logoutUser, registerUser } from "../postAction"
 
 
 const initialState={
@@ -16,7 +16,12 @@ const initialState={
     token:localStorage.getItem("token"),
     connections:[],
     acceptedConnections:[],
-    sentConnections:[]
+    sentConnections:[],
+    messages:[],
+    userId:null,
+    messageLoading:true,
+    messageError:true
+
 }
 
  const authSlice=createSlice({
@@ -134,6 +139,33 @@ const initialState={
       state.loading = false;
       state.error = action.payload;
     });
+     builder
+    .addCase(getCurrentUserId.fulfilled, (state, action) => {
+      state.userId = action.payload;
+    })
+    .addCase(getCurrentUserId.rejected, (state, action) => {
+      state.messageError = action.payload;
+    })
+    .addCase(getMessages.pending, (state) => {
+      state.messageLoading = true;
+    })
+
+    .addCase(getMessages.fulfilled, (state, action) => {
+      state.messageLoading = false;
+      state.messages = action.payload;
+    })
+
+    .addCase(getMessages.rejected, (state, action) => {
+     state.messageLoading = false;
+      state.messageError= action.payload;
+    })
+    .addCase(addMessage.fulfilled,(state,action)=>{
+     state.messageLoading = false;
+
+     state.messages.push(action.payload)
+
+
+    })
        
 
     }

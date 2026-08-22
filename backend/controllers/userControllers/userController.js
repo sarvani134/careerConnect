@@ -270,8 +270,10 @@ const sendConnectionRequest = async (req, res) => {
 
         // Check whether request already exists
         const existingRequest = await Connection.findOne({
-            userId: user._id,
-            connectionId: connectionId
+            $or: [
+                { userId: user._id, connectionId },
+                { userId: connectionId, connectionId: user._id }
+            ]
         });
 
         if (existingRequest) {
@@ -584,7 +586,11 @@ const acceptConnectionRequest=async(req,res)=>{
       return res.send("no user found")
     }
 
-    let connectionUser=await Connection.findById(requestId)
+    let connectionUser=await Connection.findOne({
+      _id:requestId,
+      connectionId:user._id,
+      status_accepted:false
+    })
     if(!connectionUser){
       return res.send(" Request sent user doesnt exist ")
     }
@@ -623,15 +629,34 @@ const getConnectionsAccepted = async (req, res) => {
       });
     }
 
-    const connections = await Connection.find({
-      connectionId: user._id,
-      status_accepted: true
-    }).populate(
-      "userId",
-      "name username email profilePicture"
-    );
+    const connectionRecords = await Connection.find({
+      status_accepted: true,
+      $or: [
+        { userId: user._id },
+        { connectionId: user._id }
+      ]
+    })
+      .populate("userId", "name username email profilePicture")
+      .populate("connectionId", "name username email profilePicture");
 
-    return res.json({ connections });
+    const uniqueConnections = new Map();
+
+    for (const record of connectionRecords) {
+      const currentUserSentRequest =
+        record.userId?._id.toString() === user._id.toString();
+      const connectedUser = currentUserSentRequest
+        ? record.connectionId
+        : record.userId;
+
+      if (connectedUser) {
+        uniqueConnections.set(connectedUser._id.toString(), {
+          _id: record._id,
+          userId: connectedUser
+        });
+      }
+    }
+
+    return res.json({ connections: Array.from(uniqueConnections.values()) });
 
   } catch (err) {
     console.log(err);

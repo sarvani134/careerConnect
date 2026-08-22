@@ -25,6 +25,7 @@ import Profile from "../components/Profile";
 import HomeDirect from "../components/HomeDirect";
 import CreatePost from "../components/CreatePost";
 import ConnectionPage from "../components/ConnectionPage";
+import MessagePage from "../components/MessagePage";
 
 
 const router = createBrowserRouter([
@@ -61,12 +62,16 @@ const router = createBrowserRouter([
                 element: <Profile />
             },
             {
-                path:"/posts/createPost",
+                path:"posts/createPost",
                 element:<CreatePost/>
             },
             {
-                path:"/users/connectionPage",
+                path:"users/connectionPage",
                 element:<ConnectionPage/>
+            },
+             {
+                path:"messages/messagePage",
+                element:<MessagePage/>
             }
            
           

@@ -2,11 +2,21 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getConnectionsAccepted } from "../actions/postAction";
 import "../public/ConnectionPage.css";
+import { useNavigate } from "react-router-dom";
 
 function MyConnection() {
   const dispatch = useDispatch();
+  const navigate=useNavigate()
 
   const [search, setSearch] = useState("");
+  const handleMessage=async(user)=>{
+    console.log("message page")
+    navigate("/messages/messagePage",{
+      state:{
+        receiver:user
+      }
+    })
+  }
 
   const { acceptedConnections, loading, error } = useSelector(
     (state) => state.authReducer
@@ -117,7 +127,7 @@ function MyConnection() {
                   @{user?.username || "username"}
                 </p>
 
-                <button className="message-btn">
+                <button className="message-btn" onClick={()=>handleMessage(user)}>
                   Message
                 </button>
 

@@ -133,7 +133,7 @@ export const incrementLikes = createAsyncThunk(
         }
     }
  )
- export const getUserById=createAsyncThunk("/users/getUserById",async(userId,thunkAPI)=>{
+export const getUserById=createAsyncThunk("/users/getUserById",async(userId,thunkAPI)=>{
       try {
             const response = await axios.get(
                 "http://localhost:3000/users/getUserById",
@@ -153,6 +153,19 @@ export const incrementLikes = createAsyncThunk(
             );
         }
     
+ })
+
+ export const getCurrentUserId=createAsyncThunk("/users/getUserId",async(_,thunkAPI)=>{
+    try {
+      const token=localStorage.getItem("token")
+      const response=await axios.get("http://localhost:3000/users/getUserId",{
+        params:{token}
+      })
+
+      return response.data.userId
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.response?.data || err.message)
+    }
  })
 
  export const createPost=createAsyncThunk("/posts/createPost",async(formData,thunkAPI)=>{
@@ -225,3 +238,62 @@ export const incrementLikes = createAsyncThunk(
             );
         }
  })
+
+ export const getMessages = createAsyncThunk(
+  "messages/getMessages",
+
+  async ({ senderId, receiverId }, thunkAPI) => {
+
+    try {
+
+      const response = await axios.get(
+        "http://localhost:3000/messages/getMessages",
+        {
+          params: {
+            senderId,
+            receiverId,
+            token: localStorage.getItem("token")
+          }
+        }
+      );
+
+      return response.data.messages;
+
+    } catch (error) {
+
+      return thunkAPI.rejectWithValue(
+        error.response?.data || error.message
+      );
+    }
+
+  }
+);
+export const addMessage = createAsyncThunk(
+  "messages/addMessage",
+
+  async (
+    data,
+    thunkAPI
+  ) => {
+
+    try {
+
+      const response = await axios.post(
+        "http://localhost:3000/messages/addMessage",
+        {
+          ...data,
+          token: localStorage.getItem("token")
+        }
+      );
+
+      return response.data.newMessage;
+
+    } catch (error) {
+
+      return thunkAPI.rejectWithValue(
+        error.response?.data || error.message
+      );
+    }
+
+  }
+);

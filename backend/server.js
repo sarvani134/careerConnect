@@ -14,8 +14,9 @@ app.use(cors())
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use("/users",userRouter)
-app.use("/posts",postRouter)
+
 const path = require("path");
+const messageRouter = require("./routes/messageRoutes/messageRoute");
 
 app.use(
     "/uploads",
@@ -27,7 +28,9 @@ mongoose.connect(process.env.CONNECTION_STRING)
 .catch((err)=>{
     console.log(err)
 })
+
 app.use("/posts",postRouter)
+app.use("/messages",messageRouter)
 app.listen(3000,()=>{
     console.log("connected to port 3000")
 })
