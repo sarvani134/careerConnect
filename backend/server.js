@@ -14,6 +14,9 @@ app.use(cors())
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use("/users",userRouter)
+app.get("/", (req, res) => {
+    res.send("BusinessConnect API is running");
+});
 
 const path = require("path");
 const messageRouter = require("./routes/messageRoutes/messageRoute");
