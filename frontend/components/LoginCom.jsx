@@ -9,8 +9,8 @@ function LoginCom() {
     const dispatch=useDispatch()
     const isLoading = useSelector((state) => state.authReducer.isLoading);
     const [formData, setFormData] = useState({
-        email: "",
-        password: "",
+        email: "demo@businessconnect.app",
+        password: "Demo@123",
     });
     const [flashMessage, setFlashMessage] = useState("");
 
