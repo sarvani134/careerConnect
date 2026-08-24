@@ -9,7 +9,7 @@ import {
 import { getAllComments } from "../actions/postAction";
 import { toggleLikeOptimistic } from "../actions/postAction/postIndex";
 import "../public/AllPosts.css";
-import axios from "axios";
+import { clientServer } from "../src/config";
 import { toast } from "react-toastify";
 
 function AllPosts() {
@@ -77,8 +77,8 @@ function AllPosts() {
   async function findUserId() {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(
-        "http://localhost:3000/users/getUserId",
+      const response = await clientServer.get(
+        "/users/getUserId",
         { params: { token } }
       );
 
@@ -98,7 +98,7 @@ function AllPosts() {
       if (!confirmed) return;
 
       const token = localStorage.getItem("token");
-      await axios.post("http://localhost:3000/posts/deletePost", {
+      await clientServer.post("/posts/deletePost", {
         token,
         postId: post._id,
       });
@@ -125,7 +125,7 @@ function AllPosts() {
   async function saveEdit() {
     try {
       const token = localStorage.getItem("token");
-      await axios.post("http://localhost:3000/posts/editPost", {
+      await clientServer.post("/posts/editPost", {
         token,
         body: editBody,
         postId: editingPost._id,
@@ -149,8 +149,8 @@ function AllPosts() {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.post(
-        "http://localhost:3000/users/sendConnectionRequest",
+      const response = await clientServer.post(
+        "/users/sendConnectionRequest",
         { connectionId: toId, token }
       );
 
@@ -183,7 +183,7 @@ function AllPosts() {
     setCommentSubmitErrorByPost((prev) => ({ ...prev, [postId]: null }));
 
     try {
-      await axios.post("http://localhost:3000/posts/commentPost", {
+      await clientServer.post("/posts/commentPost", {
         token: localStorage.getItem("token"),
         postId,
         commentBody,

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { clientServer } from "../src/config";
 import "../public/Profile.css";
 import { useNavigate } from "react-router-dom";
 
@@ -59,8 +59,8 @@ function Profile() {
                 return;
             }
 
-            const response = await axios.post(
-                "http://localhost:3000/users/displayProfile",
+            const response = await clientServer.post(
+                "/users/displayProfile",
                 {
                     token
                 }
@@ -222,8 +222,8 @@ function Profile() {
 
             setIsSaving(true);
             setSaveError("");
-            await axios.post(
-                "http://localhost:3000/users/updateProfileData",
+            await clientServer.post(
+                "/users/updateProfileData",
                 updateData
             );
 

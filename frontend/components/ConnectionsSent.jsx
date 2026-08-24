@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { clientServer } from "../src/config";
 import { ConnectionCard } from "./Connections";
 import "../public/Connections.css";
 
@@ -19,8 +19,8 @@ function ConnectionsSent() {
       }
 
       try {
-        const response = await axios.get(
-          "http://localhost:3000/users/getConnectionsSent",
+        const response = await clientServer.get(
+          "/users/getConnectionsSent",
           { params: { token } }
         );
         setConnections(Array.isArray(response.data) ? response.data : []);

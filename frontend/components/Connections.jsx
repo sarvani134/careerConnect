@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { clientServer } from "../src/config";
 import "../public/Connections.css";
 
 function Connections() {
@@ -18,8 +18,8 @@ function Connections() {
       }
 
       try {
-        const response = await axios.get(
-          `http://localhost:3000/users/getConnectionsReceived/${token}`
+        const response = await clientServer.get(
+          `/users/getConnectionsReceived/${token}`
         );
         setConnections(Array.isArray(response.data) ? response.data : []);
       } catch (err) {

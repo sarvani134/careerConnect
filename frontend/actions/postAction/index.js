@@ -1,13 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { clientServer } from "../../src/config";
 
 // Login User
 export const loginUser = createAsyncThunk(
     "users/login",
     async (user, thunkAPI) => {
         try {
-            const response = await axios.post(
-                "http://localhost:3000/users/login",
+            const response = await clientServer.post(
+                "/users/login",
                 {
                     email: user.email,
                     password: user.password,
@@ -31,7 +31,7 @@ export const logoutUser = createAsyncThunk(
     "users/logout",
     async (token, thunkAPI) => {
         try {
-            await axios.post("http://localhost:3000/users/logout", { token });
+            await clientServer.post("/users/logout", { token });
             return token;
         } catch (err) {
             return thunkAPI.rejectWithValue(
@@ -46,8 +46,8 @@ export const registerUser = createAsyncThunk(
     "users/register",
     async (user, thunkAPI) => {
         try {
-            const response = await axios.post(
-                "http://localhost:3000/users/register",
+            const response = await clientServer.post(
+                "/users/register",
                 user
             );
 
@@ -63,7 +63,7 @@ export const registerUser = createAsyncThunk(
 export const getAllPosts=createAsyncThunk("/posts/allPosts",async(_,thunkAPI)=>{
     try{
 
-        const response=await axios.get("http://localhost:3000/posts/allPosts", {
+        const response=await clientServer.get("/posts/allPosts", {
             params: { token: localStorage.getItem("token") }
         })
 
@@ -77,8 +77,8 @@ export const getConnectionsSent = createAsyncThunk(
     "/users/getSentRequests",
     async (data, thunkAPI) => {
         try {
-            const response = await axios.post(
-                "http://localhost:3000/users/getConnectionsSent",
+            const response = await clientServer.post(
+                "/users/getConnectionsSent",
                 data
             );
 
@@ -94,8 +94,8 @@ export const incrementLikes = createAsyncThunk(
     "/posts/incrementLikes",
     async (postId, thunkAPI) => {
         try {
-            const response = await axios.post(
-                "http://localhost:3000/posts/incrementLikes",
+            const response = await clientServer.post(
+                "/posts/incrementLikes",
                 {
                     postId,
                     token: localStorage.getItem("token")
@@ -115,8 +115,8 @@ export const incrementLikes = createAsyncThunk(
  export const  getAllComments=createAsyncThunk("/posts/getAllComments",
     async (postId, thunkAPI) => {
         try {
-            const response = await axios.get(
-                "http://localhost:3000/posts/getAllComments",
+            const response = await clientServer.get(
+                "/posts/getAllComments",
                 {
                   params: {
                         postId:postId
@@ -135,8 +135,8 @@ export const incrementLikes = createAsyncThunk(
  )
 export const getUserById=createAsyncThunk("/users/getUserById",async(userId,thunkAPI)=>{
       try {
-            const response = await axios.get(
-                "http://localhost:3000/users/getUserById",
+            const response = await clientServer.get(
+                "/users/getUserById",
                 {
                   params: {
                         userId:userId
@@ -158,7 +158,7 @@ export const getUserById=createAsyncThunk("/users/getUserById",async(userId,thun
  export const getCurrentUserId=createAsyncThunk("/users/getUserId",async(_,thunkAPI)=>{
     try {
       const token=localStorage.getItem("token")
-      const response=await axios.get("http://localhost:3000/users/getUserId",{
+      const response=await clientServer.get("/users/getUserId",{
         params:{token}
       })
 
@@ -170,8 +170,8 @@ export const getUserById=createAsyncThunk("/users/getUserById",async(userId,thun
 
  export const createPost=createAsyncThunk("/posts/createPost",async(formData,thunkAPI)=>{
      try {
-            const response = await axios.post(
-                "http://localhost:3000/posts/createPost",
+            const response = await clientServer.post(
+                "/posts/createPost",
                 
                   formData
                 
@@ -192,7 +192,7 @@ export const getUserById=createAsyncThunk("/users/getUserById",async(userId,thun
      try {
         let token=localStorage.getItem("token")
 
-        let response=await axios.get("http://localhost:3000/users/getConnectionsAccepted",{params:{token}})
+        let response=await clientServer.get("/users/getConnectionsAccepted",{params:{token}})
 
            
 
@@ -209,7 +209,7 @@ export const getUserById=createAsyncThunk("/users/getUserById",async(userId,thun
      try {
         let token=localStorage.getItem("token")
 
-        let response=await axios.get("http://localhost:3000/users/getConnectionsReceived",{params:{token}})
+        let response=await clientServer.get("/users/getConnectionsReceived",{params:{token}})
 
            
 
@@ -226,7 +226,7 @@ export const getUserById=createAsyncThunk("/users/getUserById",async(userId,thun
      try {
 
 
-        let response=await axios.post("http://localhost:3000/users/acceptConnectionRequest",data)
+        let response=await clientServer.post("/users/acceptConnectionRequest",data)
 
            
 
@@ -246,8 +246,8 @@ export const getUserById=createAsyncThunk("/users/getUserById",async(userId,thun
 
     try {
 
-      const response = await axios.get(
-        "http://localhost:3000/messages/getMessages",
+      const response = await clientServer.get(
+        "/messages/getMessages",
         {
           params: {
             senderId,
@@ -278,8 +278,8 @@ export const addMessage = createAsyncThunk(
 
     try {
 
-      const response = await axios.post(
-        "http://localhost:3000/messages/addMessage",
+      const response = await clientServer.post(
+        "/messages/addMessage",
         {
           ...data,
           token: localStorage.getItem("token")
