@@ -22,7 +22,6 @@ import Connections from "../components/Connections";
 import ConnectionsSent from "../components/ConnectionsSent";
 import Logout from "../components/Logout";
 import Profile from "../components/Profile";
-import HomeDirect from "../components/HomeDirect";
 import CreatePost from "../components/CreatePost";
 import ConnectionPage from "../components/ConnectionPage";
 import MessagePage from "../components/MessagePage";
@@ -35,7 +34,7 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <HomeDirect />,
+                element: <LoginCom />,
             },
             {
                 path: "users/login",
