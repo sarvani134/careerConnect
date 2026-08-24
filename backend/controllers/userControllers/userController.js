@@ -76,6 +76,9 @@ const login=async(req,res)=>{
   try{
 
     let {email,password}=req.body
+    if(!email || !password){
+      return res.status(400).json({ message: "Email and password are required" })
+    }
     let user=await User.findOne({email})
     if(!user){
       return res.status(401).json({ message: "Invalid email or password" })
@@ -97,7 +100,8 @@ const login=async(req,res)=>{
 
   }
   catch(err){
-    console.log(err)
+    console.error("Login failed:", err)
+    return res.status(500).json({ message: "Unable to log in. Please try again." })
   }
 
 }

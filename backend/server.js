@@ -3,8 +3,6 @@ const mongoose=require("mongoose")
 const dotenv=require("dotenv")
 const path = require("path");
 dotenv.config({ path: path.join(__dirname, ".env") })
-const dns = require("node:dns");
-dns.setServers(["1.1.1.1", "8.8.8.8"]); 
 const {storage}=require("./cloudConfig")
 
 const cors=require("cors");
@@ -22,17 +20,25 @@ app.use(
     "/uploads",
     express.static(path.join(__dirname, "uploads"))
 );
-mongoose.connect(process.env.CONNECTION_STRING)
-.then(()=>{
-})
-.catch((err)=>{
-    console.log(err)
-})
-
 app.use("/posts",postRouter)
 app.use("/messages",messageRouter)
 
 const port = process.env.PORT || 3000
-app.listen(port, "0.0.0.0", ()=>{
-    console.log(`connected to port ${port}`)
+
+const startServer = async () => {
+    if (!process.env.CONNECTION_STRING) {
+        throw new Error("CONNECTION_STRING environment variable is required")
+    }
+
+    await mongoose.connect(process.env.CONNECTION_STRING)
+    console.log("connected to MongoDB")
+
+    app.listen(port, "0.0.0.0", ()=>{
+        console.log(`connected to port ${port}`)
+    })
+}
+
+startServer().catch((error) => {
+    console.error("Unable to start backend:", error.message)
+    process.exit(1)
 })
